@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Polling PLN - Batch Mode",
+  "version": "2.0",
+  "description": "Ekstensi otomatis pengisi form polling PLN dengan dukungan batch processing banyak email, auto-screenshot, dan auto-refresh.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "downloads",
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Polling PLN"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}
